@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build: .
+    expose:
+      - 5000
+    depends_on:
+      - db
+  db:
+    image: redis
+    environment:
+    - REDIS_URL=redis://http://50b3f4c@ec2-54-209-190-123.compute-1.amazonaws.com:42239/
+    expose:
+    - 42239
+    
